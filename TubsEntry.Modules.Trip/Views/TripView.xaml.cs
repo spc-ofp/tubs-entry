@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Spc.Ofp.TubsEntry.Modules.Trip.Views
 {
     /// <summary>
-    /// Interaction logic for NavigatorView.xaml
+    /// Interaction logic for TripView.xaml
     /// </summary>
-    public partial class NavigatorView : UserControl
+    public partial class TripView : UserControl
     {
-        public NavigatorView()
+        public TripView()
         {
             InitializeComponent();
         }

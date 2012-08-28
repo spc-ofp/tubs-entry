@@ -89,11 +89,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ViewModels\ClosedTripViewModel.cs" />
+    <Compile Include="ViewModels\ClosedTripsViewModel.cs" />
     <Compile Include="ViewModels\OpenTripsViewModel.cs" />
+    <Compile Include="ViewModels\TripViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModel.cs" />
-    <Compile Include="Views\NavigatorView.xaml.cs">
-      <DependentUpon>NavigatorView.xaml</DependentUpon>
+    <Compile Include="Views\ClosedTripsNavigationView.xaml.cs">
+      <DependentUpon>ClosedTripsNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpenTripsNavigationView.xaml.cs">
+      <DependentUpon>OpenTripsNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TripView.xaml.cs">
+      <DependentUpon>TripView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WelcomeView.xaml.cs">
       <DependentUpon>WelcomeView.xaml</DependentUpon>
@@ -114,7 +121,15 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\NavigatorView.xaml">
+    <Page Include="Views\ClosedTripsNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OpenTripsNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TripView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +137,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\delete.png" />
+    <Resource Include="Views\Images\open.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

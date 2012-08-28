@@ -56,11 +56,13 @@ namespace Spc.Ofp.TubsEntry.Modules.Trip.ViewModels
             // TODO Fill from tubs-data-clr
             OpenTrips = new ObservableCollection<TripSummaryItem>()
             {
-                new TripSummaryItem { TripNumber = "ABC / 09-01", DepartureDate = DateTime.Now, ReturnDate = DateTime.Now },
-                new TripSummaryItem { TripNumber = "ABC / 09-02", DepartureDate = DateTime.Now, ReturnDate = DateTime.Now },
+                new TripSummaryItem { TripNumber = "ABC / 09-01", DepartureDate = DateTime.Now, ReturnDate = DateTime.Now, IsOpen = true },
+                new TripSummaryItem { TripNumber = "ABC / 09-02", DepartureDate = DateTime.Now, ReturnDate = DateTime.Now, IsOpen = true },
             };
 
             LoadTripCommand = new DelegateCommand<TripSummaryItem>(this.LoadTrip, this.CanLoad);
+            FinishTripCommand = new DelegateCommand<TripSummaryItem>(this.FinishTrip, this.CanFinish);
+            DeleteTripCommand = new DelegateCommand<TripSummaryItem>(this.DeleteTrip, this.CanDelete);
         }
 
         private TripSummaryItem _selectedTrip;
@@ -87,11 +89,34 @@ namespace Spc.Ofp.TubsEntry.Modules.Trip.ViewModels
             return null != arg && arg.IsOpen;
         }
 
+        private bool CanFinish(TripSummaryItem arg)
+        {
+            arg = arg ?? this.SelectedTrip;
+            return null != arg && arg.IsOpen;
+        }
+
+        private bool CanDelete(TripSummaryItem arg)
+        {
+            return false;
+        }
+
         private void LoadTrip(TripSummaryItem arg)
         {
             arg = arg ?? this.SelectedTrip;
             var msg = arg == null ? "LoadTrip got null" : arg.TripNumber;
             MessageBox.Show(msg);
+        }
+
+        private void FinishTrip(TripSummaryItem arg)
+        {
+            arg = arg ?? this.SelectedTrip;
+            var msg = arg == null ? "FinishTrip got null" : arg.TripNumber;
+            MessageBox.Show(msg);
+        }
+
+        private void DeleteTrip(TripSummaryItem arg)
+        {
+
         }
     }
 }

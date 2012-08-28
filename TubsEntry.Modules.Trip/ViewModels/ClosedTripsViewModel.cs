@@ -32,7 +32,7 @@ namespace Spc.Ofp.TubsEntry.Modules.Trip.ViewModels
     /// <summary>
     /// This ViewModel is used to contribute the list of closed trips "owned"
     /// by the current user.
-    public class ClosedTripViewModel : NotificationObject
+    public class ClosedTripsViewModel : NotificationObject
     {
         public ObservableCollection<TripSummaryItem> ClosedTrips { get; private set; }
 
@@ -40,7 +40,7 @@ namespace Spc.Ofp.TubsEntry.Modules.Trip.ViewModels
         // the database.
         public DelegateCommand<TripSummaryItem> ReopenTripCommand { get; private set; }
 
-        public ClosedTripViewModel()
+        public ClosedTripsViewModel()
         {
             // TODO Fill from tubs-data-clr
             ClosedTrips = new ObservableCollection<TripSummaryItem>()

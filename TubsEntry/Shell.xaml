@@ -59,7 +59,13 @@
             </Grid.ColumnDefinitions>
             <GridSplitter HorizontalAlignment="Left" Width="5" Grid.Column="1" />
 
+            <!-- This is the old version, where there was only one control in the navigator region-->
+            <!--
             <ContentControl x:Name="NavigatorRegion" Grid.Column="0" prism:RegionManager.RegionName="NavigatorRegion" />
+            -->
+            <Border Grid.Column="0" Margin="5,0,0,5">
+                <ItemsControl x:Name="NavigationItemsControl" prism:RegionManager.RegionName="NavigatorRegion" />
+            </Border>
 
             <ContentControl x:Name="WorkspaceRegion" Grid.Column="1" prism:RegionManager.RegionName="WorkspaceRegion" />
         </Grid>

@@ -39,9 +39,10 @@ namespace Spc.Ofp.TubsEntry.Modules.Trip
             var container = ServiceLocator.Current.GetInstance<IUnityContainer>();
 
             // Use Prism "view discovery" for views that last for the application's lifetime
-            // In this case, that's the navigation view
+            // In the case of TUBS entry, it is the views that are hosted in the navigation region
             var regionManager = ServiceLocator.Current.GetInstance<IRegionManager>();
-            regionManager.RegisterViewWithRegion("NavigatorRegion", typeof(NavigatorView));
+            regionManager.RegisterViewWithRegion("NavigatorRegion", typeof(OpenTripsNavigationView));
+            regionManager.RegisterViewWithRegion("NavigatorRegion", typeof(ClosedTripsNavigationView));
 
             // Use Prism "view injection" to fill the workspace region on startup
             // Later this will be replaced with the current trip view
