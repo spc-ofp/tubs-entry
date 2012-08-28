@@ -28,6 +28,11 @@ namespace Spc.Ofp.TubsEntry.Modules.Trip.ViewModels
     using Microsoft.Practices.Prism.Commands;
     using Microsoft.Practices.Prism.ViewModel;
     using Spc.Ofp.TubsEntry.Modules.Trip.Models;
+    using System.Text;
+    using Microsoft.Practices.Prism;
+    using Microsoft.Practices.ServiceLocation;
+    using Microsoft.Practices.Unity;
+    using Microsoft.Practices.Prism.Regions;
 
     /// <summary>
     /// This ViewModel is used to contribute the list of open trips "owned"
@@ -103,8 +108,18 @@ namespace Spc.Ofp.TubsEntry.Modules.Trip.ViewModels
         private void LoadTrip(TripSummaryItem arg)
         {
             arg = arg ?? this.SelectedTrip;
-            var msg = arg == null ? "LoadTrip got null" : arg.TripNumber;
-            MessageBox.Show(msg);
+            var builder = new StringBuilder();
+            builder.Append("TripView");
+            var query = new UriQuery();
+            query.Add("TripId", arg.TripId.ToString());
+            builder.Append(query);
+
+            var regionManager = ServiceLocator.Current.GetInstance<IRegionManager>();
+            regionManager.RequestNavigate("WorkspaceRegion", new Uri(builder.ToString(), UriKind.Relative));
+
+
+            //var msg = arg == null ? "LoadTrip got null" : arg.TripNumber;
+            //MessageBox.Show(msg);
         }
 
         private void FinishTrip(TripSummaryItem arg)

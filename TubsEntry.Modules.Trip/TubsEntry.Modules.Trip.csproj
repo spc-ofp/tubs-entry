@@ -74,6 +74,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\TripService.cs" />
     <Compile Include="Models\TripSummaryItem.cs" />
     <Compile Include="ModuleTrip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -99,6 +100,9 @@
     <Compile Include="Views\OpenTripsNavigationView.xaml.cs">
       <DependentUpon>OpenTripsNavigationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Ps1View.xaml.cs">
+      <DependentUpon>Ps1View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TripView.xaml.cs">
       <DependentUpon>TripView.xaml</DependentUpon>
     </Compile>
@@ -118,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\ClosedTripsNavigationView.xaml">
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OpenTripsNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Ps1View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

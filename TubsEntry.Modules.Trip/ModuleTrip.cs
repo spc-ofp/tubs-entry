@@ -22,6 +22,7 @@ namespace Spc.Ofp.TubsEntry.Modules.Trip
      * You should have received a copy of the GNU Affero General Public License
      * along with TUBS.  If not, see <http://www.gnu.org/licenses/>.
      */
+    using System;
     using Microsoft.Practices.Prism.Modularity;
     using Microsoft.Practices.Prism.Regions;
     using Microsoft.Practices.ServiceLocation;
@@ -50,6 +51,9 @@ namespace Spc.Ofp.TubsEntry.Modules.Trip
             var region = regionManager.Regions["WorkspaceRegion"];
             region.Add(welcomeView);
             region.Activate(welcomeView);
+
+            // Register any other views with the container
+            container.RegisterType<Object, TripView>("TripView");
 
             // If I have time, circle back and get DI working with NHibernate
             /*

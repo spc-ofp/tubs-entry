@@ -9,7 +9,20 @@
     <UserControl.DataContext>
         <local:TripViewModel />
     </UserControl.DataContext>
-    <StackPanel>
-        
+    <StackPanel Margin="5,0,0,5">
+        <Border Style="{StaticResource RacePitBorderStyle}" Height="24">
+            <TextBlock Text="{Binding Title}"
+                       Foreground="White"
+                       FontSize="14"
+                       FontWeight="Bold"
+                       Background="Blue" />
+        </Border>
+        <TabControl x:Name="WorkbookTabs" ItemsSource="{Binding Tabs}">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Header}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+        </TabControl>
     </StackPanel>
 </UserControl>
